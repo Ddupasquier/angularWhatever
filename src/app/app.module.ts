@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HighlightDirective } from './directives/highlight.directive';
+import { SortDirective } from './directives/sort.directive';
 
 // * Angular Mats
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,6 +29,8 @@ const routes = [
     HeaderComponent,
     PeopleComponent,
     PersonFormComponent,
+    HighlightDirective,
+    SortDirective
   ],
   imports: [
     BrowserModule,

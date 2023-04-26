@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Person } from 'src/app/models/person';
 import { AddPersonService } from '../../services/add-person.service';
 
@@ -12,7 +13,7 @@ export class PersonFormComponent {
   age: number = 0;
   poop: boolean = false;
 
-  constructor(private addPersonService: AddPersonService) { }
+  constructor(private addPersonService: AddPersonService, private router: Router) { }
 
   handleSubmit() {
     const newPerson: Person = {
@@ -22,5 +23,9 @@ export class PersonFormComponent {
       poop: this.poop,
     };
     this.addPersonService.addPerson(newPerson);
+    const isConfirmed = window.confirm('Person added successfully. Do you want to go back to the list of people?');
+    if (isConfirmed) {
+      this.router.navigate(['/']);
+    }
   }
 }

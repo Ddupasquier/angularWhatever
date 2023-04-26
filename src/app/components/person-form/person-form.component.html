@@ -1,6 +1,9 @@
 <form (ngSubmit)="handleSubmit()">
-    <input type="text" [(ngModel)]="name" name="name" placeholder="Name"><br />
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Name">
     <input type="text" [(ngModel)]="age" name="age" placeholder="Age">
-    <input type="checkbox" [(ngModel)]="poop" name="poop"><br />
+    <div class="labeled">
+        <label for="isPoopy">Is Poopy?</label>
+        <input id="isPoopy" type="checkbox" [(ngModel)]="poop" name="poop">
+    </div>
     <button type="submit">Save</button>
 </form>

@@ -52,11 +52,5 @@
         "name": "Lola",
         "age": 0,
         "poop": true
-    },
-    {
-        "id": 10,
-        "name": "Lola",
-        "age": 0,
-        "poop": true
     }
 ]
