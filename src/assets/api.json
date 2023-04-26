@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Napoleon Dynamite",
+        "age": 30,
+        "poop": false
+    },
+    {
+        "id": 2,
+        "name": "Jane",
+        "age": 25,
+        "poop": false
+    },
+    {
+        "id": 3,
+        "name": "Jim",
+        "age": 40,
+        "poop": true
+    },
+    {
+        "id": 4,
+        "name": "Jill",
+        "age": 35,
+        "poop": false
+    },
+    {
+        "id": 5,
+        "name": "Leopleurodon",
+        "age": 20,
+        "poop": true
+    },
+    {
+        "id": 6,
+        "name": "Liam",
+        "age": 15,
+        "poop": true
+    },
+    {
+        "id": 7,
+        "name": "Lily",
+        "age": 10,
+        "poop": false
+    },
+    {
+        "id": 8,
+        "name": "Luna",
+        "age": 5,
+        "poop": true
+    },
+    {
+        "id": 9,
+        "name": "Lola",
+        "age": 0,
+        "poop": true
+    },
+    {
+        "id": 10,
+        "name": "Lola",
+        "age": 0,
+        "poop": true
+    }
+]

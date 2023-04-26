@@ -1,0 +1,8 @@
+<div class="people">
+    <div *ngFor="let person of people" class="card">
+        <h1>
+            {{person.name}}, age {{person.age}}... {{person.poop ? 'poops' : 'does not poop'}}
+        </h1>
+        <img *ngIf="person.poop" (click)="helloWorld()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Emoji_u1f4a9.svg/800px-Emoji_u1f4a9.svg.png" width="50px"/>
+    </div>
+</div>
