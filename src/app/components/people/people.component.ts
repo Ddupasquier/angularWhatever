@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person';
 import { AddPersonService } from '../../services/add-person.service';
-import { SortEvent, SortDirection } from '../../directives/sort.directive';
+import { SortEvent } from '../../directives/sort.directive';
 
 function isPersonKey(key: string): key is keyof Person {
   return key === 'name' || key === 'age' || key === 'poop';
