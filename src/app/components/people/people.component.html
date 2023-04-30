@@ -1,9 +1,9 @@
 <button appSortable="name" (sort)="onSort($event)">Sort by name</button>
 <button appSortable="age" (sort)="onSort($event)">Sort by age</button>
-<div class="people">
-    <div *ngFor="let person of people" class="card" appHighlight>
+<div class="people" [@listAnimation]="people">
+    <div *ngFor="let person of people" class="card" appHighlight >
         <h1>
-            {{person.name}}, age {{person.age}}... {{person.poop ? 'poops' : 'does not poop'}}
+            As of {{person.id | customDate}}, {{person.name}}, age {{person.age}}... {{person.poop ? 'poops' : 'does not poop'}}
         </h1>
         <img *ngIf="person.poop"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Emoji_u1f4a9.svg/800px-Emoji_u1f4a9.svg.png"

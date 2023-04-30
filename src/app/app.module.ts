@@ -1,11 +1,16 @@
 import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+
+// * Cutom pipes
+import { CustomDatePipe } from './pipes/custom-date.pipe';
+
+// * Directives
 import { HighlightDirective } from './directives/highlight.directive';
 import { SortDirective } from './directives/sort.directive';
 
@@ -30,7 +35,8 @@ const routes = [
     PeopleComponent,
     PersonFormComponent,
     HighlightDirective,
-    SortDirective
+    SortDirective,
+    CustomDatePipe
   ],
   imports: [
     BrowserModule,
@@ -40,6 +46,7 @@ const routes = [
     MatIconModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

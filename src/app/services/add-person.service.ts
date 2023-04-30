@@ -6,12 +6,16 @@ import { Person } from '../models/person'; // import the Person model/interface
 @Injectable({
   providedIn: 'root',
 })
+
+
+
 export class AddPersonService { // declare the AddPersonService class
   private _people = new BehaviorSubject<Person[]>([]); // create a new instance of BehaviorSubject with an empty array of Person objects
 
   people$ = this._people.asObservable(); // create a public property that is an observable of _people
 
   constructor(private http: HttpClient) { // define a constructor that takes an instance of HttpClient
+
     this.fetchPeople(); // call the fetchPeople method to retrieve a list of people
   }
 

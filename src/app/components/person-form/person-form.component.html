@@ -1,9 +1,24 @@
-<form (ngSubmit)="handleSubmit()">
-    <input type="text" [(ngModel)]="name" name="name" placeholder="Name">
-    <input type="text" [(ngModel)]="age" name="age" placeholder="Age">
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <div class="input-container">
+        <input type="text" formControlName="name" placeholder="Name" required minlength="3" />
+        <div class="validation">
+            <div *ngIf="form.controls.name.errors?.['required']" [@fadeIn]>Name is required.</div>
+            <div *ngIf="form.controls.name.errors?.['minlength']" [@fadeIn]>Name must be at least 3 characters long.
+            </div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <input type="number" formControlName="age" placeholder="Age" required min="0" />
+        <div class="validation">
+            <div *ngIf="form.controls.age.errors?.['required']" [@fadeIn]>Age is required.</div>
+            <div *ngIf="form.controls.age.errors?.['min']" [@fadeIn]>Age must be greater than 0.</div>
+        </div>
+    </div>
+
     <div class="labeled">
         <label for="isPoopy">Is Poopy?</label>
-        <input id="isPoopy" type="checkbox" [(ngModel)]="poop" name="poop">
+        <input id="isPoopy" type="checkbox" formControlName="poop" />
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" [disabled]="form.invalid">Save</button>
 </form>
