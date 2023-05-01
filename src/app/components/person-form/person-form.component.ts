@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Person } from 'src/app/models/person';
+import { NewPerson } from 'src/app/models/person';
 import { AddPersonService } from '../../services/add-person.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -27,8 +27,7 @@ export class PersonFormComponent {
 
   handleSubmit() {
     if (this.form.valid) {
-      const newPerson: Person = {
-        id: Date.now(),
+      const newPerson: NewPerson = {
         name: this.form.value.name || '',
         age: Number(this.form.value.age),
         poop: this.form.value.poop ?? false,
@@ -40,5 +39,19 @@ export class PersonFormComponent {
         this.router.navigate(['/']);
       }
     }
+  }
+
+  getErrorMessage(fieldName: string): string {
+    const control = this.form.get(fieldName);
+
+    if (control?.errors?.['required']) {
+      return `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required.`;
+    } else if (control?.errors?.['minlength']) {
+      return `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} must be at least ${control.errors['minlength'].requiredLength} characters long.`;
+    } else if (control?.errors?.['min']) {
+      return `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} must be greater than ${control.errors['min'].min - 1}.`;
+    }
+
+    return '';
   }
 }

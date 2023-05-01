@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'src/app/models/person';
+import { Person, NewPerson } from 'src/app/models/person';
 import { AddPersonService } from '../../services/add-person.service';
 import { SortEvent } from '../../directives/sort.directive';
 
 function isPersonKey(key: string): key is keyof Person {
   return key === 'name' || key === 'age' || key === 'poop';
 }
+
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
@@ -16,10 +17,17 @@ export class PeopleComponent implements OnInit {
 
   constructor(private addPersonService: AddPersonService) { }
 
-  ngOnInit(): void {
-    this.addPersonService.people$.subscribe((data) => {
-      this.people = data;
-    });
+  async ngOnInit(): Promise<void> {
+    try {
+      const newPeople: NewPerson[] = await this.addPersonService.getPeople();
+      this.people = newPeople.map((newPerson, index) => ({
+        ...newPerson,
+        id: index,
+        created_at: Date.now(),
+      }));
+    } catch (error) {
+      console.error('Error fetching people:', error);
+    }
   }
 
   helloWorld() {
